@@ -22,7 +22,7 @@ export default class Analytic extends BaseModel {
   @computed()
   public get age_std_desviation(){
     const c = this.sum_age_squared-(this.sum_age*this.sum_age/this.count)
-    return this.count<=0?0:Math.sqrt(c/this.count).toFixed(4)
+    return this.count<=0?0:parseFloat(Math.sqrt(c/this.count).toFixed(4))
   }
 
   @column.dateTime({ autoCreate: true })
